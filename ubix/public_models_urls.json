@@ -1,0 +1,113 @@
+{
+    "pretrained-maxpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/MS94zsAOTQx7pAc/download"
+    },
+    "pretrained-maxpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/Iqm0nafd5z8Ohni/download"
+    },
+    "pretrained-maxpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/mhWx0MhkDrijApo/download"
+    },
+    "pretrained-maxpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/vfJDw9RnB3emmGy/download"
+    },
+    "pretrained-maxpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/tHPp4r8WntId9N4/download"
+    },
+
+    "pretrained-meanpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/ScQ165wE3q7SIGI/download"
+    },
+    "pretrained-meanpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/bcIINQVvcgWwuq6/download"
+    },
+    "pretrained-meanpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/lnJ9bcl6cYPXIVR/download"
+    },
+    "pretrained-meanpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/QZdrviK82msjc0F/download"
+    },
+    "pretrained-meanpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/vmqn6fSGlzKd0L3/download"
+    },
+
+    "pretrained-attentionpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/y3VksNFq74PaPHb/download"
+    },
+    "pretrained-attentionpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/B10482lxfGVG18w/download"
+    },
+    "pretrained-attentionpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/7ddUkw6bEqvdOdM/download"
+    },
+    "pretrained-attentionpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/i3Ci5ptktWjpBzp/download"
+    },
+    "pretrained-attentionpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/KO2nKrvt2lDOtqU/download"
+    },
+
+    "pretrained-distributionpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/z1e0NaPRoHoXvl5/download"
+    },
+    "pretrained-distributionpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/YF2GOxb3PHni05y/download"
+    },
+    "pretrained-distributionpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/iP1NdzNYbRHONNI/download"
+    },
+    "pretrained-distributionpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/QAK9ONtj4IufffS/download"
+    },
+    "pretrained-distributionpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/PA6Fegj0fRiZKXH/download"
+    },
+
+    "pretrained-distributionwithattentionpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/orXFNf7XAPyuKc8/download"
+    },
+    "pretrained-distributionwithattentionpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/cwGzDu1GOf7OSlQ/download"
+    },
+    "pretrained-distributionwithattentionpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/uC4Xyo4MIvEtqWH/download"
+    },
+    "pretrained-distributionwithattentionpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/LV70nod2G259oeJ/download"
+    },
+    "pretrained-distributionwithattentionpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/IHZYBUp0hV2S0Dz/download"
+    },
+
+    "pretrained-transmilpooling/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/FHOIX0TVn8Dy3Pi/download"
+    },
+    "pretrained-transmilpooling/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/G5ipX1km9LgZU17/download"
+    },
+    "pretrained-transmilpooling/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/STPU22kaUw0J7zP/download"
+    },
+    "pretrained-transmilpooling/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/WsDmgkLk3zx5ZYi/download"
+    },
+    "pretrained-transmilpooling/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/CzsqOmHxtSfO5Yt/download"
+    },
+
+    "pretrained-maxpooling_mcdo/0": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/kjxtbuDGj9bHzEZ/download"
+    },
+    "pretrained-maxpooling_mcdo/1": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/ao3y9ruPHaD3Zin/download"
+    },
+    "pretrained-maxpooling_mcdo/2": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/KZpAvbIWVai5Gic/download"
+    },
+    "pretrained-maxpooling_mcdo/3": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/ULGwkFoekFti2B5/download"
+    },
+    "pretrained-maxpooling_mcdo/4": {
+        "best_quadratic_weighted_kappa": "https://surfdrive.surf.nl/files/index.php/s/Jkl5fc1JWji7hiy/download"
+    }
+}

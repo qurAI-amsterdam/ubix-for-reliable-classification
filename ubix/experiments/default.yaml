@@ -1,0 +1,350 @@
+# ================================= #
+# =              Data             = #
+# ================================= #
+
+data_set:
+  desc: Name of the dataset
+  value: RadboudCOVID
+data_subset_name:
+  desc: None
+  value: null
+normalization_type:
+  desc: Normalization type of data
+  value: minmax
+full_oct_shape:
+  desc: Input shape before putting into model
+  value: [-1, -1, -1]
+preprocessed_postfix:
+  desc: Postfix that described the preprocessing type
+  value: null
+is_running_pycharm:
+  desc: Whether the experiment is being run in pycharm (not very reliable)
+  value: False
+allow_model_overwrite:
+  desc: null
+  value: True
+unknown_y:
+  desc: null
+  value: False
+load_all_to_memory:
+  desc: null
+  value: False
+preprocess_folder:
+  desc: null
+  value: scan_cropped4_normalized
+use_segmentation:
+  desc: null
+  value: False
+segmentation_labels:
+  desc: null
+  value: [1]
+segmentation_channel_type:
+  desc: null
+  value: mask
+label_names:
+  desc: null
+  value: [1, 2, 3, 4, 5, 6]
+label_field:
+  desc: null
+  value: False
+orientationd_axcodes:
+  desc: null
+  value: SPR
+
+# ================================= #
+# =        Input processing       = #
+# ================================= #
+resample_input:
+  desc: Whether to resample to the spacing specified in this configuration file
+  value: True
+scale_intensity_max:
+  desc: null
+  value: 255.0
+
+# ================================= #
+# =             Model             = #
+# ================================= #
+
+merge_classes:
+  desc: list of classes to merge
+  value: []
+exclude_classes:
+  desc: null
+  value: []
+architecture:
+  desc: null
+  value: densenet121
+densenet_num_init_features:
+  desc: null
+  value: 64
+densenet_bn_size:
+  desc: null
+  value: 5
+densenet_growth_rate:
+  desc: null
+  value: 32
+drop_rate:
+  desc: null
+  value: 0.0
+only_last_layer_drop_out:
+  desc: null
+  value: False
+load_pretrained_model_weights:
+  desc: null
+  value: True
+custom_model_finetuning:
+  desc: null
+  value: False
+finetuning_cutoff:
+  desc: null
+  value: 0
+maxpool_z:
+  desc: null
+  value: True
+
+# ================================= #
+# =       Data augmentation       = #
+# ================================= #
+use_data_augmentation:
+  desc: null
+  value: True
+gpu_aug:
+  desc: Whether to do data augmentation on the gpu
+  value: True
+aug_noise_std:
+  desc: null
+  value: 0.05
+aug_noise_prob:
+  desc: null
+  value: 0.15
+aug_contrast_lower:
+  desc: null
+  value: 0.75
+aug_contrast_upper:
+  desc: null
+  value: 3
+aug_contrast_prob:
+  desc: null
+  value: 0.15
+artificial_artifacts:
+  desc: None
+  value: null
+artificial_artifacts_prob:
+  desc: None
+  value: 1.
+artificial_artifacts_bscan_size_rel_min:
+  desc: None
+  value: 0.02
+artificial_artifacts_bscan_size_rel_max:
+  desc: None
+  value: 0.15
+artificial_artifacts_override_ngroups:
+  desc: None
+  value: null
+
+# ================================= #
+# =            Training           = #
+# ================================= #
+
+lr:
+  desc: null
+  value: 0.0001
+weight_decay:
+  desc: null
+  value: 0.0
+batch_size:
+  desc: null
+  value: 1
+inference_batch_size:
+  desc: null
+  value: 1
+num_workers:
+  desc: null
+  value: 4
+max_epochs:
+  desc: null
+  value: 1000
+i3d_freeze_bn:
+  desc: null
+  value: True
+focal_gamma:
+  desc: null
+  value: 3
+overfit_n_samples:
+  desc: null
+  value: False
+smaller_train_set:
+  desc: null
+  value: null
+balanced_train_set:
+  desc: Balance the train set before training (so not while sampling)
+  value: False
+balanced_train_sampling:
+  desc: null
+  value: True
+input_type:
+  desc: null
+  value: full_2.5d
+network_norm_type:
+  desc: null
+  value: batch_norm
+loss_type:
+  desc: null
+  value: ce
+ce_mse_factor:
+  desc: null
+  value: 0.10
+best_model_monitor:
+  desc: null
+  value: [acc, auc, loss, quadratic_weighted_kappa, kappa]
+latest_model_interval_iteration:
+  desc: null
+  value: 1000
+es_patience:
+  desc: null
+  value: 10000
+es_patience_monitor:
+  desc: null
+  value: acc
+restart_if_model_exists:
+  desc: null
+  value: False
+force_dropout:
+  desc: null
+  value: False
+mil_pooling_function:  # MIL pooling
+  desc: null
+  value: max
+mil_pooling_function_attention_L:
+  desc: known in the paper as M (but L is used in the code from the paper, see https://github.com/max-ilse/AttentionDeepMIL/blob/master/model.py)
+  value: 500
+mil_pooling_function_attention_D:
+  desc: known in the paper as M (but L is used in the code from the paper, see https://github.com/max-ilse/AttentionDeepMIL/blob/master/model.py)
+  value: 128
+mil_pooling_function_attention_K:
+  desc: not mentioned in the paper (it's just 1 in the paper, see https://github.com/max-ilse/AttentionDeepMIL/blob/master/model.py)
+  value: 1
+mil_pooling_function_attention_instancelevel:
+  desc: if true, only the last C classes of the embedding is used (essentially instance level). if false, embedding-level is used and a classifier is applied after mil pooling
+  value: true
+mil_pooling_function_distribution_numbins:
+  value: 11
+mil_pooling_function_distribution_sigma:
+  value: 0.1
+mil_instance_definition:
+  desc: options are slices (B-scans) / patches_2d / patches_3d (not implemented)
+  value: slices
+mil_instance_patch_size:
+  desc: used when mil_instance_definition is patches_2d or patches_3d
+  value: [128, 128] # 
+use_dropout_distribution_mil:
+  value: True
+copy_data_to_local:
+  desc: null
+  value: True
+use_gradient_checkpoints_per_module:
+  desc: null
+  value: False
+densenet_checkpoints:
+  desc: null
+  value: False
+densenet_checkpoints_chunks:
+  desc: null
+  value: 2
+modules_per_checkpoint:
+  desc: null
+  value: 1
+minimum_slices:
+  desc: null
+  value: 16
+exclude_metrics:
+  desc: null
+  value: [aece, nll]
+spacing:
+  desc: null
+  value: [min, min, min]
+clip_disk_input:
+  desc: null
+  value: True
+n_classes_before_merge:
+  desc: null
+  value: 6
+n_classes:
+  desc: null
+  value: 5
+balanced_val_sampling:
+  desc: Make the validation set balanced on the fly (so during sampling)
+  value: False
+balanced_val_set:
+  desc: Make the validation set balanced before training
+  value: False
+soft_ordinal_target:
+  desc: null
+  value: False
+devries_confidence:
+  desc: Use confidence learning as described in https://arxiv.org/abs/1802.04865
+  value: False
+devries_lamdba_start:
+  desc: Weight of the DeVries loss term (lambda in https://arxiv.org/abs/1802.04865)
+  value: .1
+devries_budget:
+  desc: Budget term (lambda in https://arxiv.org/abs/1802.04865)
+  value: .3
+devries_mil_pool:
+  desc: MIL pooling to do for the deVries confidence (only used if a timedist_ model is used)
+  value: min
+
+# ================================= #
+# =           Inference           = #
+# ================================= #
+model_eval:
+  desc: Whether to do model.eval() during inferrence
+  value: True
+
+# ================================= #
+# =            Logging            = #
+# ================================= #
+write_confusion_examples_tb:
+  desc: null
+  value: False
+tb_log_interval_train:
+  desc: null
+  value: 100
+tb_log_interval_val:
+  desc: null
+  value: 500
+write_video:
+  desc: null
+  value: False
+wandb:
+  desc: whether to use wandb
+  value: True
+
+# ================================= #
+# =             Paths             = #
+# ================================= #
+
+src_loc:
+  desc: Location of src folder
+  value: .
+results_root:
+  desc: null
+  value: ./results
+tb_log_root:
+  desc: null
+  value: ./results/tb_log
+vis_root:
+  desc: null
+  value: ./results/vis
+model_results_root:
+  desc: null
+  value: ./results/models
+data_root:
+  desc: path to the different sets
+  value: ./ubix-dummy-data
+remove_temp:
+  desc: Whether /tmp/monai should be removed at the start of the run. This is important in interactive sessions if something in your data loading changed. It will use the cached version (so the version before you updated in your dataloader) if this field is False.
+  value: True
+label_json_name:
+  desc: null
+  value: "labels.json"

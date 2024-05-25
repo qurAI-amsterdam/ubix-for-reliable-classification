@@ -1,0 +1,49 @@
+data_set:
+  value: EUGENDA_OCT
+data_subset_name:
+  desc: None,
+  value: null
+es_patience_monitor:
+  value: quadratic_weighted_kappa
+architecture:
+  value: timedist_resnet18
+input_type:
+  value: full_3d
+load_pretrained_model_weights:
+  value: False
+i3d_freeze_bn:
+  value: True
+exclude_classes:
+  value: []
+label_names:
+  value: [
+    'No AMD',  # 0
+    'Early AMD',  # 1
+    'Intermediate AMD',  # 2
+    'Advanced AMD: GA',  # 3
+    'Advanced AMD: CNV',  # 4
+  ]
+num_workers:
+  value: 4
+batch_size:
+  value: 1
+overfit_n_samples:
+  value: False
+spacing:
+  value: [0.013899999670684338, 0.0038999998942017555, -1]
+aug_contrast_lower:
+  value: 0.5
+aug_contrast_upper:
+  value: 3
+aug_contrast_prob:
+  value: 0.3
+aug_noise_std:
+  value: .1
+aug_noise_prob:
+  value: .3
+scale_intensity_max:
+  value: 1.0
+model_eval:
+  value: False
+mil_pooling_function:
+  value: mean
