@@ -3,6 +3,21 @@ This repository provides the code for **Uncertainty-Based Instance eXclusion (UB
 
 UBIX is a method to improve the generalizability of classification models, by introducing built-in robustness to dataset-specific (out-of-distribution) artifacts, without requiring any additional training (supervised or unsupervised) on data with such artifacts. UBIX is an inference-time module that can be employed in multiple-instance learning (MIL) settings. Instead of assuming equal contribution of all instances to the bag-level output, UBIX detects instances corrupted due to local artifacts on-the-fly using uncertainty estimation, reducing (UBIX<sub>soft</sub>) or fully ignoring (UBIX<sub>hard</sub>) their contributions before MIL pooling.
 
+![Methods figure](assets/methods_fig.png)
+<p align="center"><i>
+  Overview of the general MIL pipeline (left) and how the two UBIX variants are integrated into this pipeline (right).
+</i></p>
+
+![Results example figure A](assets/example_a.png)
+<p align="center"><i>
+  UBIX correctly predicts "No AMD/Early AMD", while MIL incorrectly predicts "Intermediate AMD'. UBIX suppresses the instance-level outputs at the location of the artifact around B-scan 57, causing it to be robust to that artifact, in contrast to MIL.
+</i></p>
+
+![Results example figure B](assets/example_b.png)
+<p align="center"><i>
+  Correct GA volume-level classification. Central GA is also well visible in the en face image as a white circular object around B-scan 60, which is pointed out by the instance-level output in red.
+</i></p>
+
 ## Installation
 To install UBIX, run this command from the root folder:
 ```
