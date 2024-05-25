@@ -4,7 +4,7 @@ This repository provides the code for **Uncertainty-Based Instance eXclusion (UB
 UBIX is a method to improve the generalizability of classification models, by introducing built-in robustness to dataset-specific (out-of-distribution) artifacts, without requiring any additional training (supervised or unsupervised) on data with such artifacts. UBIX is an inference-time module that can be employed in multiple-instance learning (MIL) settings. Instead of assuming equal contribution of all instances to the bag-level output, UBIX detects instances corrupted due to local artifacts on-the-fly using uncertainty estimation, reducing (UBIX<sub>soft</sub>) or fully ignoring (UBIX<sub>hard</sub>) their contributions before MIL pooling.
 
 ## Installation
-To install UBIX, simply clone this code and from the root folder, run:
+To install UBIX, run this command from the root folder:
 ```
 pip3 install -e .
 ```
@@ -66,15 +66,15 @@ Your `labels.json` file should look like this:
 }
 ```
 
-Note that you can in principle bring any dataset in this structure of `.nii.gz` and `labels.json` files, allowing you to use any dataset with this code base. While doing this, make sure the spacing is correctly set in your `.nii.gz` files. If you would like to train your own models, you simply make a `train` and `val` folder as well, and fill them with images and label files in the same way.
+Note that you can in principle bring any dataset in this structure of `.nii.gz` and `labels.json` files, allowing you to use any dataset with this code base. While doing this, make sure the spacing is correctly set in your `.nii.gz` files. If you would like to train your own models, you fill a `train` and `val` folder as well, in the same way with image and label files.
 
 ### Using our pre-trained models
 You can run our pre-trained models that are described in the paper, including the UBIX parameters that we optimized on our validation set. You do not need to manually download the model weights, they will automatically be extracted from the URLs in `ubix/public_models_urls.json`.
 
-We refer you to this notebook with a guide on how to use UBIX on already trained models.
+We refer you to [this notebook](<./Applying UBIX to trained models.ipynb>) with a guide on how to use UBIX on already trained models.
 
 ### Training your own models
-New models can be defined in the `ubix/experiments` folder using `.yaml` files. To, for example, train a new MIL model with Max pooling, you can use the file: `ubix/experiments/new/maxpooling.yaml`. Simply adapt the `data_root` value from `/path/to/your/data_root` to your actual data root folder and you should be good to go. This folder should contain a `train`, `val`, and `test` folder, and follow the structure described as described [here](#data-preparation).
+New models can be defined in the `ubix/experiments` folder using `.yaml` files. To, for example, train a new MIL model with Max pooling, you can use the file: `ubix/experiments/new/maxpooling.yaml`. Adapt the `data_root` value from `/path/to/your/data_root` to your actual data root folder and you should be good to go. This folder should contain a `train`, `val`, and `test` folder, and follow the structure described as described [here](#data-preparation).
 
 To train one of our models, you just run:
 
