@@ -50,7 +50,7 @@ For training and inference, data needs to prepared in the right format. Here, we
 
 3. Run the following script (remember to fill in the correct path arguments):
     ```
-    python3 prepare_farsiu.py --input_folder=/path/to/original_farsiu_folder/ \
+    python3 ubix/data/prepare_farsiu.py --input_folder=/path/to/original_farsiu_folder/ \
     --nifti_folder=/path/to/nifti/raw \
     --resampled_folder=/path/to/nifti/resampled
     ```
