@@ -149,12 +149,18 @@ class UBIX:
             unc = _strip_nan(unc_withnans)
             instances_to_keep = comp_fn(unc, ubix_params["unc_thresh_tau"])
 
+            if not np.any(instances_to_keep):
+                # We will take the most certain instance to still be able to predict something,
+                # but send a warning later that actually all instances were too uncertain.
+                if self._measure_is_uncertainty():
+                    instances_to_keep = [np.argmin(unc)]
+                else:
+                    instances_to_keep = [np.argmax(unc)]
+                n_fell_outside_criteria += 1
+
             post_ubix_logits_instance = log[instances_to_keep]
             post_ubix_logits.append(post_ubix_logits_instance)
             all_instances_kept.append(instances_to_keep)
-
-            if not np.any(instances_to_keep):
-                n_fell_outside_criteria += 1
 
         if n_fell_outside_criteria > 0:
             print(
@@ -512,9 +518,9 @@ class UBIX:
 
         # Overal statistics of the dataset
         ubix_params = {
-            "min_logits_per_class": min_logits_per_class,
-            "mean_logits_per_model_and_class": mean_logits_per_model_and_class,
-            "std_logits_per_model_and_class": std_logits_per_model_and_class,
+            "min_logits_per_class": min_logits_per_class,  # not used for hard UBIX
+            "mean_logits_per_model_and_class": mean_logits_per_model_and_class,  # not used at all currently
+            "std_logits_per_model_and_class": std_logits_per_model_and_class,  # not used at all currently
             "umin": umin,
             "umax": umax,
         }
