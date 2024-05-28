@@ -60,9 +60,9 @@ Now, `/path/to/nifti/resampled` is ready for use and should have the following s
 ```
 - /path/to/nifti/resampled
   - train
-    - labels.json  # this file has to be present, but can be empty if the train set is empty
+    - labels.json  # this file has to be present, but can be empty (i.e., {}) if the train set is empty
   - val
-    - labels.json  # this file has to be present, but can be empty if the val set is empty
+    - labels.json  # this file has to be present, but can be empty (i.e., {}) if the val set is empty
   - test
     - <image_1>.nii.gz
     - <image_2>.nii.gz
