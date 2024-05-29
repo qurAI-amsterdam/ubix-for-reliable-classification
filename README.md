@@ -26,6 +26,12 @@ pip3 install -e .
 
 This will install the required packages, including the `ubix` package.
 
+Subsequently, create a [Weights & Biases](https://wandb.ai/) (W&B) account (if you don't have one yet) and add a [W&B API key](https://wandb.ai/settings#api) to a file named `wandb.key` in the root of this project (the same location as this `README.md` file) as follows:
+
+```
+echo "YOUR_WANDB_API_KEY" > wandb.key
+```
+
 ## Usage
 
 ### Data preparation

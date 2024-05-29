@@ -153,7 +153,7 @@ def init_wandb_experiment(model_name, change_config=None):
 
     wandb_key_file = Path("wandb.key")
     if wandb_key_file.exists():
-        wandb.login(key=open("wandb.key", "r").read())
+        wandb.login(key=open(wandb_key_file, "r").read().strip())
     else:
         raise FileNotFoundError(
             "You need to provide a wandb.key file in the root project folder."
