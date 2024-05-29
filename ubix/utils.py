@@ -148,6 +148,22 @@ Config utilities
 """
 
 
+class Run:
+    def __init__(self, name) -> None:
+        self.name = name
+
+
+class Config:
+    def __init__(self, config) -> None:
+        for k, v in config.items():
+            setattr(self, k, v)
+    
+    def update(self, dct, **kwargs):
+        for k, v in dct.items():
+            setattr(self, k, v)
+        
+
+
 def init_wandb_experiment(model_name, change_config=None):
     print(f"Running experiment {model_name}")
 
@@ -155,9 +171,10 @@ def init_wandb_experiment(model_name, change_config=None):
     if wandb_key_file.exists():
         wandb.login(key=open(wandb_key_file, "r").read().strip())
     else:
-        raise FileNotFoundError(
-            "You need to provide a wandb.key file in the root project folder."
-        )
+        pass
+        # raise FileNotFoundError(
+        #     "You need to provide a wandb.key file in the root project folder."
+        # )
 
     default_path = "ubix/experiments/default.yaml"
 
@@ -194,6 +211,11 @@ def init_wandb_experiment(model_name, change_config=None):
             dir="./results",
             allow_val_change=True,
         )
+    else:
+        print('=' * 100)
+        print(config)
+        wandb.config = Config(config)
+        wandb.run = Run(model_name)
 
 
 """
@@ -591,17 +613,17 @@ def convert_label(config, y_idx):
     return y_idx
 
 
-# this is necessary because otherwise multiprocessing is compaining
-# @dataclass
-class ConfigData:
-    def __init__(self, config) -> None:
-        try:
-            items = config.items()
-        except KeyError:
-            items = config._items.items()
+# # this is necessary because otherwise multiprocessing is compaining
+# # @dataclass
+# class ConfigData:
+#     def __init__(self, config) -> None:
+#         try:
+#             items = config.items()
+#         except KeyError:
+#             items = config._items.items()
 
-        for k, v in items:
-            setattr(self, k, v)
+#         for k, v in items:
+#             setattr(self, k, v)
 
 
 def get_augmentation_transforms(config, translate_range_z=2):
@@ -956,7 +978,7 @@ def get_data_set(
         ]
 
         if config.artificial_artifacts:
-            config_data = ConfigData(config)
+            # config_data = ConfigData(config)
 
             transforms.append(
                 ArtificialArtifactsd(
