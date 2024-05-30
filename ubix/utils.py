@@ -1006,7 +1006,7 @@ def get_data_set(
             shutil.rmtree(persistent_folder, ignore_errors=True)
 
         if not persistent_folder.parent.exists():
-            persistent_folder.parent.mkdir(exist_ok=True)
+            persistent_folder.parent.mkdir(exist_ok=True, parents=True)
 
         persistent_folder.mkdir(exist_ok=True)
 
