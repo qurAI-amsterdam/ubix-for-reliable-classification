@@ -101,8 +101,8 @@ if __name__ == "__main__":
     make_labels(nifti_folder_test)
     make_labels(resampled_folder_test)
 
-    make_empty_labels(nifti_folder_test / "train")
-    make_empty_labels(resampled_folder_test / "train")
+    make_empty_labels(nifti_folder / "train")
+    make_empty_labels(resampled_folder / "train")
     
-    make_empty_labels(nifti_folder_test / "val")
-    make_empty_labels(resampled_folder_test / "val")
+    make_empty_labels(nifti_folder / "val")
+    make_empty_labels(resampled_folder / "val")
