@@ -757,8 +757,7 @@ if __name__ == "__main__":
     # model_name = "pretrained-distributionwithattentionpooling"
     # model_name = "pretrained-transmilpooling"
     # predictions_postfix = "_deep_ensemble_5_mean"
-
-    # TODO: make the .p ubix_param files public for our validation set
+    
     save_path = f"./results/models/{model_name}/ubix_params_{ubix_type}{predictions_postfix}_{uncertainty_measure}.p"
 
     ubix = UBIX(ubix_type=ubix_type, uncertainty_measure=uncertainty_measure)
