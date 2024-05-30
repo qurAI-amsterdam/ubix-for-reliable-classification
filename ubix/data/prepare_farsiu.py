@@ -79,14 +79,17 @@ if __name__ == "__main__":
     parser.add_argument("--nifti_folder", default="Farsiu_NIFTI/raw")
     parser.add_argument("--resampled_folder", default="Farsiu_NIFTI/resampled")
     args = parser.parse_args()
+    
     input_folder = Path(args.input_folder)
+    nifti_folder = Path(args.nifti_folder)
+    resampled_folder = Path(args.resampled_folder)
 
     for subset in ["train", "val", "test"]:
-        (args.nifti_folder / subset).mkdir(exist_ok=True, parents=True)
-        (args.resampled_folder / subset).mkdir(exist_ok=True, parents=True)
+        (nifti_folder / subset).mkdir(exist_ok=True, parents=True)
+        (resampled_folder / subset).mkdir(exist_ok=True, parents=True)
 
-    nifti_folder = Path(args.nifti_folder) / "test"
-    resampled_folder = Path(args.resampled_folder) / "test"
+    nifti_folder = nifti_folder / "test"
+    resampled_folder = resampled_folder / "test"
 
     nifti_folder.mkdir(exist_ok=True, parents=True)
     resampled_folder.mkdir(exist_ok=True, parents=True)
@@ -97,5 +100,5 @@ if __name__ == "__main__":
     make_labels(nifti_folder)
     make_labels(resampled_folder)
 
-    make_empty_labels(args.nifti_folder / "train")
-    make_empty_labels(args.nifti_folder / "val")
+    make_empty_labels(nifti_folder / "train")
+    make_empty_labels(nifti_folder / "val")
