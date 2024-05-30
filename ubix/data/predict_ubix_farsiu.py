@@ -21,7 +21,7 @@ if __name__ == "__main__":
     model_name = "pretrained-maxpooling/0"
     predictions_postfix = "_aug_10_mean"  # TTA
     
-    save_path = f"./results/models/{model_name}/ubix_params_{ubix_type}{predictions_postfix}_{uncertainty_measure}.p"
+    save_path = f"./results/models/{model_name}/ubix_params_hval_{ubix_type}{predictions_postfix}_{uncertainty_measure}.p"
 
     ubix = UBIX(ubix_type=ubix_type, uncertainty_measure=uncertainty_measure)
 
