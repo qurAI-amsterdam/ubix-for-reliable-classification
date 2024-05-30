@@ -88,17 +88,21 @@ if __name__ == "__main__":
         (nifti_folder / subset).mkdir(exist_ok=True, parents=True)
         (resampled_folder / subset).mkdir(exist_ok=True, parents=True)
 
-    nifti_folder = nifti_folder / "test"
-    resampled_folder = resampled_folder / "test"
+    nifti_folder_test = nifti_folder / "test"
+    resampled_folder_test = resampled_folder / "test"
 
-    nifti_folder.mkdir(exist_ok=True, parents=True)
-    resampled_folder.mkdir(exist_ok=True, parents=True)
+    nifti_folder_test.mkdir(exist_ok=True, parents=True)
+    resampled_folder_test.mkdir(exist_ok=True, parents=True)
 
-    mat_to_nifti(input_folder, nifti_folder, "AMD")
-    mat_to_nifti(input_folder, nifti_folder, "Control")
-    resample(nifti_folder, resampled_folder, spacing)
-    make_labels(nifti_folder)
-    make_labels(resampled_folder)
+    mat_to_nifti(input_folder, nifti_folder_test, "AMD")
+    mat_to_nifti(input_folder, nifti_folder_test, "Control")
+    resample(nifti_folder_test, resampled_folder_test, spacing)
+    
+    make_labels(nifti_folder_test)
+    make_labels(resampled_folder_test)
 
-    make_empty_labels(nifti_folder / "train")
-    make_empty_labels(nifti_folder / "val")
+    make_empty_labels(nifti_folder_test / "train")
+    make_empty_labels(resampled_folder_test / "train")
+    
+    make_empty_labels(nifti_folder_test / "val")
+    make_empty_labels(resampled_folder_test / "val")
