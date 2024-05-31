@@ -4,6 +4,7 @@ from ubix.predict import Predict
 import sklearn.metrics
 import numpy as np
 import argparse
+import scipy.special
 
 
 if __name__ == "__main__":
@@ -46,17 +47,25 @@ if __name__ == "__main__":
         test_predictor, predict_set="test", predictions_postfix=predictions_postfix
     )
     
-    qwk = lambda a, b: sklearn.metrics.cohen_kappa_score(a, b, weights="quadratic")
-    y_pred_ubix_merged = np.argmax(y_pred_ubix, -1)
-    y_pred_ubix_merged = (y_pred_ubix_merged >= 1).astype(int)
+    kappa = lambda a, b: sklearn.metrics.cohen_kappa_score(a, b, weights="linear")
     
-    y_pred_non_ubix_merged = np.argmax(predictions_non_ubix["y_pred"], -1)
-    y_pred_non_ubix_merged = (y_pred_ubix_merged >= 1).astype(int)
+    class_offset = 1
+    y_pred_ubix_merged = y_pred_ubix[:, class_offset:].sum(-1)
     
-    qwk_ubix = qwk(predictions_non_ubix["y_true"], y_pred_ubix_merged)
-    qwk_non_ubix = qwk(predictions_non_ubix["y_true"], y_pred_non_ubix_merged)
+    sm_non_ubix = scipy.special.softmax(predictions_non_ubix["y_pred"], -1)
+    y_pred_non_ubix_merged = sm_non_ubix[:, class_offset:].sum(-1)
     
-    print("qwk_ubix:", qwk_ubix)
-    print("qwk_non_ubix:", qwk_non_ubix)
+    kappa_ubix = kappa(predictions_non_ubix["y_true"], y_pred_ubix_merged >= .5)
+    kappa_non_ubix = kappa(predictions_non_ubix["y_true"], y_pred_non_ubix_merged >= .5)
+    
+    print("kappa_ubix:", kappa_ubix)
+    print("kappa_non_ubix:", kappa_non_ubix)
+    
+    auc = sklearn.metrics.roc_auc_score
+    auc_ubix = auc(predictions_non_ubix["y_true"], y_pred_ubix_merged)
+    auc_non_ubix = auc(predictions_non_ubix["y_true"], y_pred_non_ubix_merged)
+    
+    print("auc_ubix:", auc_ubix)
+    print("auc_non_ubix:", auc_non_ubix)
 
     pass
