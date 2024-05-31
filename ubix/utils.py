@@ -198,7 +198,10 @@ def init_wandb_experiment(model_name, change_config=None):
 
     if change_config is not None:
         for k, v in change_config.items():
-            config[k] = v
+            if type(config) is dict:
+                config[k] = v
+            else:
+                setattr(config, k, v)
 
     if wandb_key_file.exists():
         wandb.init(
@@ -233,7 +236,7 @@ def get_model_name(config):
     # if "model_name" in config._items.__dict__:
     try:
         if hasattr(config, "model_name"):
-            return config["model_name"]
+            return config.model_name
     except KeyError:
         pass
     return wandb.run.name
@@ -507,7 +510,8 @@ def load_model(config, model_type, train_set=None, device="cpu", load_optimizer=
     random_states = checkpoint["random_states"]
 
     for k, v in checkpoint["best_val_scalars"].items():
-        wandb.run.summary[k] = v
+        if hasattr(wandb.run, "summary"):
+            wandb.run.summary[k] = v
 
     if "latest_es_monitor_batch" in checkpoint:
         latest_es_monitor_batch = checkpoint["latest_es_monitor_batch"]

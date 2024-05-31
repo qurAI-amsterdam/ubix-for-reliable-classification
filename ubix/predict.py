@@ -35,10 +35,7 @@ class Predict:
 
     def _change_config(self):
         for k, v in self.change_config.items():
-            # self.config.__dict__[k] = v
-            # setattr(self.config, k, v)
-            self.config[k] = v
-            # self.config.update({k: v}, allow_val_change=True)
+            setattr(self.config, k, v)
             assert (
                 getattr(self.config, k) == v
             ), f"for key {k}: {getattr(self.config, k) == v} != {v}"
