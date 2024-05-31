@@ -72,6 +72,7 @@ Now, `/path/to/nifti/resampled` is ready for use and should have the following s
   - test
     - <image_1>.nii.gz
     - <image_2>.nii.gz
+    ...
     - <image_N>.nii.gz
     - labels.json
 ```
