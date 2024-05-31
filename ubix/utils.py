@@ -215,8 +215,6 @@ def init_wandb_experiment(model_name, change_config=None):
             allow_val_change=True,
         )
     else:
-        print('=' * 100)
-        print(config)
         wandb.config = Config(config)
         wandb.run = Run(model_name)
 

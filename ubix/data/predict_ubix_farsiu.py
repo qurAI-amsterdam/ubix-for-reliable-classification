@@ -14,15 +14,17 @@ if __name__ == "__main__":
     parser.add_argument("--folder", default="/path/to/nifti/resampled")
     args = parser.parse_args()
     
-    ubix_type = "soft"
-    # ubix_type = "hard"
-    # uncertainty_measure = "max_logit_max0th_confidence"
-    uncertainty_measure = "ordinal_entropy"
+    # ubix_type = "soft"
+    ubix_type = "hard"
+    uncertainty_measure = "max_logit_max0th_confidence"
+    # uncertainty_measure = "ordinal_entropy"
 
     # model_name = "pretrained-maxpooling/0"
     # predictions_postfix = "_aug_10_mean"  # TTA
     
-    model_name = "pretrained-maxpooling"
+    # model_name = "pretrained-maxpooling"
+    # model_name = "pretrained-meanpooling"
+    model_name = "pretrained-attentionpooling"
     predictions_postfix = "_deep_ensemble_5_mean"
     
     change_config = {"data_root": args.folder}

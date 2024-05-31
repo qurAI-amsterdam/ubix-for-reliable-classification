@@ -8,6 +8,7 @@ from tqdm.auto import tqdm
 import torch
 import pickle
 from typing import List, Optional, Dict, Any, Union, Tuple
+import wandb
 
 
 from ubix.metrics import quadratic_weighted_kappa
@@ -267,6 +268,11 @@ class UBIX:
                     )
                     for m in range(self.deep_ensemble_n)
                 ]
+                
+                # Ensuring the model_name of this run was not influenced by loading
+                # the models
+                wandb.run.name = model_name
+                wandb.config.model_name = model_name
             else:
                 # Using cached self.loaded_predictors
                 pass
